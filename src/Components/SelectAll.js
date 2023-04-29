@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 const SelectAll = () => {
   const [programObj, setProgramObj] = useState([]);
   const [topicObj, setTopicObj] = useState([]);
-  const [filterObj, setFilterObj] = useState({});
+  const [filterObj, setFilterObj] = useState({
+    program_Topic: "all",
+    program_Difficulty: "all",
+  });
 
   useEffect(() => {
     fetch("https://localhost:5001/api/MST_Program")
@@ -66,22 +69,20 @@ const SelectAll = () => {
     );
   });
 
-  const fetchUsingFilter = () => {
-    if (filterObj.program_Name === "" || filterObj.program_Difficulty === "") {
-    } else {
-      fetch(
-        `https://localhost:5001/api/MST_Program/getByFilter/${filterObj.program_Name}/${filterObj.program_Difficulty}`
-      )
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setProgramObj(data);
-          filterObj.program_Name = "all";
-          filterObj.program_Difficulty = "all";
-        })
-        .catch((e) => {});
-    }
+  const fetchUsingFilter = (program_Topic, program_Difficulty) => {
+    // console.warn(program_Topic + " " + program_Difficulty);
+    fetch(
+      `https://localhost:5001/api/MST_Program/getByFilter/${program_Topic}/${program_Difficulty}`
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setProgramObj(data);
+        filterObj.program_Topic = program_Topic;
+        filterObj.program_Difficulty = program_Difficulty;
+      })
+      .catch((e) => {});
   };
 
   return (
@@ -93,12 +94,13 @@ const SelectAll = () => {
         <div className="d-flex justify-content-center w-50">
           <select
             className="form-control m-2"
-            value={filterObj.program_Name}
+            value={filterObj.program_Topic}
             onChange={(e) => {
-              setFilterObj({ ...filterObj, program_Name: e.target.value });
+              setFilterObj({ ...filterObj, program_Topic: e.target.value });
+              fetchUsingFilter(e.target.value, filterObj.program_Difficulty);
             }}
           >
-            <option>Select Topic Name</option>
+            <option value={"all"}>Select Topic Name</option>
             {allTopicsName}
           </select>
           <select
@@ -109,26 +111,22 @@ const SelectAll = () => {
                 ...filterObj,
                 program_Difficulty: e.target.value,
               });
+              fetchUsingFilter(filterObj.program_Topic, e.target.value);
             }}
           >
-            <option>Select Difficulty</option>
+            <option value={"all"}>Select Difficulty</option>
             <option>Easy</option>
             <option>Medium</option>
             <option>Hard</option>
           </select>
-          <button
-            className="btn btn-outline-success"
+          {/* <button
+            className="btn btn-outline-success h-75 m-2"
             onClick={(e) => {
-              fetchUsingFilter();
+              fetchUsingFilter(filterObj.program_Topic,filterObj.program_Difficulty);
             }}
           >
-            Submit
-          </button>
-        </div>
-        <div>
-          <Link className="successBtn rounded-3" to={"../Insert"}>
-            <ion-icon name="add-outline"></ion-icon>
-          </Link>
+            Search
+          </button> */}
         </div>
       </div>
       <div>
