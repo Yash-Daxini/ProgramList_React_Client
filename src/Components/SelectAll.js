@@ -140,7 +140,15 @@ const SelectAll = () => {
               <th scope="col">Difficulty</th>
             </tr>
           </thead>
-          <tbody>{allPrograms}</tbody>
+          {allPrograms.length === 0 ? (
+            <tbody>
+              <tr>
+                <td colSpan={5}><h3>No match found</h3></td>
+              </tr>
+            </tbody>
+          ) : (
+            <tbody>{allPrograms}</tbody>
+          )}
         </table>
       </div>
     </div>

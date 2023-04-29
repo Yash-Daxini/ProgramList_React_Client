@@ -22,7 +22,7 @@ const SelectAllTopic = () => {
         <tr>
           <td>
             <Link
-              to={"./SelectByTopicName/" + topic.id + "/" + topic.topic_Name}
+              to={"./SelectByTopicName/" + topic.topic_Name}
               style={{ textDecoration: "none" }}
             >
               {topic.topic_Name}
