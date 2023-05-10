@@ -6,6 +6,7 @@ import SelectAllTopic from "./Components/SelectAllTopic";
 import SelectByTopicName from "./Components/SelectByTopicName";
 import Layout from "./Components/Layout";
 import Home from "./Components/Home";
+import './CSS/Style.css';
 
 function App() {
   return (

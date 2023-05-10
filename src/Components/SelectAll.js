@@ -86,7 +86,7 @@ const SelectAll = () => {
   };
 
   return (
-    <div className="selectAll main container my-5">
+    <div className="selectAll container my-5">
       <div className="d-flex justify-content-between">
         <div>
           <h1>Programs</h1>

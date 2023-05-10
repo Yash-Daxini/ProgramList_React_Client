@@ -4,19 +4,19 @@ import { Link, Outlet } from 'react-router-dom'
 const Layout = () => {
     return (
         <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-lg p-3 mb-4 bg-white rounded">
+            <nav class="customeClassForNav navbar navbar-expand-lg p-3">
                 <div class="container-fluid">
-                    <Link class="navbar-brand" to="/">Program List</Link>
+                    <Link class="navbar-brand mx-3 fw-bold" to="/" style={{color:"#03a9f4"}}>Program List</Link>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <Link class="nav-link active" aria-current="page" to="/SelectAll">Programs</Link>
+                            <li class="nav-item mx-3">
+                                <Link class="nav-link active" aria-current="page" style={{color:"#03a9f4"}} to="/SelectAll">Programs</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link class="nav-link" to="/SelectAllTopic">Topics</Link>
+                            <li class="nav-item mx-3">
+                                <Link class="nav-link" to="/SelectAllTopic" style={{color:"#03a9f4"}}>Topics</Link>
                             </li>
                         </ul>
                     </div>

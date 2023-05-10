@@ -14,6 +14,18 @@ html {
         font-size: 16px;
     }
 }
+.homeMain,.customeClassForNav{
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    color: #03a9f4;
+}
+.homeMain{
+    height: 89.5vh;
+}
+.codeIconDiv h1 ion-icon{
+    font-size: 181px;
+}
 .login{
     height: 100vh;
 }
@@ -360,13 +372,13 @@ form input{
 .star {
     color: gold;
 }
-table{
+/* table{
     background:#fff;
     border-radius:10px;
     margin-bottom:10px;
     margin-top:10px;
     padding: 10px;
-}
+} */
 
 /*  */
 
@@ -378,14 +390,14 @@ html {
     border:2px solid;
     border-radius: 40px;
 }
-table .content {
+/* table .content {
     position: relative;
     transition:0.5s;
-}
+} */
 
-table tr td {
+/* table tr td {
     color: black;
-}
+} */
 
 /*table .content td::before {
     content: '';
