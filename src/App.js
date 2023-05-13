@@ -6,11 +6,11 @@ import SelectAllTopic from "./Components/SelectAllTopic";
 import SelectByTopicName from "./Components/SelectByTopicName";
 import Layout from "./Components/Layout";
 import Home from "./Components/Home";
-import './CSS/Style.css';
+import './CSS/Style.css'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App darkTheme">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>

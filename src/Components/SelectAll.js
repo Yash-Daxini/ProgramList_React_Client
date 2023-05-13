@@ -55,7 +55,19 @@ const SelectAll = () => {
               <ion-icon name="link-outline"></ion-icon>
             </Link>
           </td>
-          <td>{program.program_Difficulty}</td>
+          {program.program_Difficulty === "Easy" ? (
+            <td className="customBadgeSuccess">
+              <span>{program.program_Difficulty}</span>
+            </td>
+          ) : program.program_Difficulty === "Medium" ? (
+            <td className="customBadgeWarning">
+              <span>{program.program_Difficulty}</span>
+            </td>
+          ) : (
+            <td className="customBadgeDanger">
+              <span>{program.program_Difficulty}</span>
+            </td>
+          )}
         </tr>
       </>
     );
@@ -86,7 +98,7 @@ const SelectAll = () => {
   };
 
   return (
-    <div className="selectAll container my-5">
+    <div className="selectAll container darkTheme">
       <div className="d-flex justify-content-between">
         <div>
           <h1>Programs</h1>
@@ -130,7 +142,7 @@ const SelectAll = () => {
         </div>
       </div>
       <div>
-        <table class="table my-5">
+        <table class="table mt-5">
           <thead>
             <tr>
               <th scope="col">Name</th>
@@ -143,7 +155,9 @@ const SelectAll = () => {
           {allPrograms.length === 0 ? (
             <tbody>
               <tr>
-                <td colSpan={5}><h3>No match found</h3></td>
+                <td colSpan={5}>
+                  <h3>No match found</h3>
+                </td>
               </tr>
             </tbody>
           ) : (
