@@ -30,7 +30,7 @@ const SelectByID = () => {
         )}
       </h5> */}
       <div className="my-5 d-flex justify-content-center align-items-center flex-column">
-        <h4>Topic : {programObj.program_Topic} </h4>
+        <h4 style={{textTransform:"capitalize"}}>Topic : {programObj.program_Topic} </h4>
         <hr/>
         <h4> Difficulty : {programObj.program_Difficulty} </h4>
       </div>
@@ -38,7 +38,7 @@ const SelectByID = () => {
         <button className="btn btn-outline-primary mx-5">
           <Link
             to={programObj.program_Link}
-            className="text-decoration-none text-dark"
+            className="text-decoration-none text-light"
           >
             Solve Here{" "}
           </Link>
@@ -46,7 +46,7 @@ const SelectByID = () => {
         <button className="btn btn-outline-primary">
           <Link
             to={programObj.program_SolutionLink}
-            className="text-decoration-none text-dark"
+            className="text-decoration-none text-light"
           >
             See Solution{" "}
           </Link>

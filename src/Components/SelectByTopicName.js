@@ -46,8 +46,8 @@ const SelectByTopicName = () => {
     );
   });
   return (
-    <div className="selectAll main">
-      <h1>{params.name.toUpperCase()}</h1>
+    <div className="selectAll container my-5 darkTheme">
+      <h1>{params.name}</h1>
       <div>
         <table class="table">
           <thead>

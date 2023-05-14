@@ -9,6 +9,9 @@
 html {
     font-size: 10px;
 }
+.App{
+    min-height: 100vh;  
+}
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -29,10 +32,6 @@ html {
 .darkTheme{
     background-color: rgb(40 40 40/1);
     color:#fff;
-    height: 100%;
-}
-.homeMain{
-    height: 89.5vh;
 }
 .codeIconDiv h1 ion-icon{
     font-size: 181px;

@@ -35,7 +35,7 @@ const SelectAllTopic = () => {
 
   return (
     <div>
-      <div className="selectAll container my-5">
+      <div className="selectAll container my-5 darkTheme">
         <h1>Topics</h1>
         <div>
           <table class="table my-5">
