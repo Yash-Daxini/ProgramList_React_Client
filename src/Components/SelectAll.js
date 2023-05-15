@@ -44,7 +44,7 @@ const SelectAll = () => {
               {program.program_Name}
             </Link>
           </td>
-          <td>{program.program_Topic}</td>
+          <td style={{textTransform:"capitalize"}}>{program.program_Topic}</td>
           <td>
             <Link to={program.program_Link} target="_blank">
               <ion-icon name="link-outline"></ion-icon>

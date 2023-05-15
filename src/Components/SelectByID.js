@@ -32,7 +32,19 @@ const SelectByID = () => {
       <div className="my-5 d-flex justify-content-center align-items-center flex-column">
         <h4 style={{textTransform:"capitalize"}}>Topic : {programObj.program_Topic} </h4>
         <hr/>
-        <h4> Difficulty : {programObj.program_Difficulty} </h4>
+        {programObj.program_Difficulty === "Easy" ? (
+            <h4 className="customBadgeSuccess">
+              <span className="fs-6">{programObj.program_Difficulty}</span>
+            </h4>
+          ) : programObj.program_Difficulty === "Medium" ? (
+            <h4 className="customBadgeWarning">
+              <span className="fs-6">{programObj.program_Difficulty}</span>
+            </h4>
+          ) : (
+            <h4 className="customBadgeDanger">
+              <span className="fs-6">{programObj.program_Difficulty}</span>
+            </h4>
+          )}
       </div>
       <div className="my-5 d-flex justify-content-center align-items-center">
         <button className="btn btn-outline-primary mx-5">
@@ -43,7 +55,7 @@ const SelectByID = () => {
             Solve Here{" "}
           </Link>
         </button>
-        <button className="btn btn-outline-primary">
+        <button className="btn btn-outline-primary mx-5">
           <Link
             to={programObj.program_SolutionLink}
             className="text-decoration-none text-light"

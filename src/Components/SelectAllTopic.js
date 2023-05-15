@@ -23,7 +23,7 @@ const SelectAllTopic = () => {
           <td>
             <Link
               to={"./SelectByTopicName/" + topic.topic_Name}
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none" , textTransform:"capitalize"}}
             >
               {topic.topic_Name}
             </Link>

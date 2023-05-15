@@ -8,7 +8,9 @@ const SelectByTopicName = () => {
   const [progams, setProgams] = useState([]);
 
   useEffect(() => {
-    fetch(`https://localhost:5001/api/MST_Program/programsByTopicName/${params.name}`)
+    fetch(
+      `https://localhost:5001/api/MST_Program/programsByTopicName/${params.name}`
+    )
       .then((res) => {
         return res.json();
       })
@@ -40,7 +42,19 @@ const SelectByTopicName = () => {
               <ion-icon name="link-outline"></ion-icon>
             </Link>
           </td>
-          <td>{program.program_Difficulty}</td>
+          {program.program_Difficulty === "Easy" ? (
+            <td className="customBadgeSuccess">
+              <span>{program.program_Difficulty}</span>
+            </td>
+          ) : program.program_Difficulty === "Medium" ? (
+            <td className="customBadgeWarning">
+              <span>{program.program_Difficulty}</span>
+            </td>
+          ) : (
+            <td className="customBadgeDanger">
+              <span>{program.program_Difficulty}</span>
+            </td>
+          )}
         </tr>
       </>
     );
