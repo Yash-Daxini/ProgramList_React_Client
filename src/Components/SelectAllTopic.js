@@ -19,34 +19,20 @@ const SelectAllTopic = () => {
   const allTopics = topicObj.map((topic) => {
     return (
       <>
-        <tr>
-          <td>
-            <Link
-              to={"./SelectByTopicName/" + topic.topic_Name}
-              style={{ textDecoration: "none" , textTransform:"capitalize"}}
-            >
-              {topic.topic_Name}
-            </Link>
-          </td>
-        </tr>
+        <div class="cardBox text-center">
+          <div class="card">
+          <Link className="text-decoration-none" to={`/SelectAllTopic/SelectByTopicName/${topic.topic_Name}`}><div class="cardName">{topic.topic_Name}</div></Link>
+          </div>
+        </div>
       </>
     );
   });
 
   return (
     <div>
-      <div className="selectAll container my-5 darkTheme">
+      <div className="selectAll container p-5 darkTheme">
         <h1>Topics</h1>
-        <div>
-          <table class="table my-5">
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-              </tr>
-            </thead>
-            <tbody>{allTopics}</tbody>
-          </table>
-        </div>
+        <div className="cardBox text-center">{allTopics}</div>
       </div>
     </div>
   );

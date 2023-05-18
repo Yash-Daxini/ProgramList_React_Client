@@ -98,7 +98,7 @@ const SelectAll = () => {
   };
 
   return (
-    <div className="selectAll container darkTheme">
+    <div className="selectAll container darkTheme p-5">
       <div className="d-flex justify-content-between">
         <div>
           <h1>Programs</h1>

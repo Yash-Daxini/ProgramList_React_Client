@@ -61,7 +61,7 @@ const SelectByTopicName = () => {
   });
   return (
     <div className="selectAll container my-5 darkTheme">
-      <h1>{params.name}</h1>
+      <h1 style={{textTransform:"capitalize"}}>{params.name}</h1>
       <div>
         <table class="table">
           <thead>

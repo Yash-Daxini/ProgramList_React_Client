@@ -85,3 +85,54 @@ table td , table th{
 .selectAll table{
     margin-top: 20px;
 }
+.cardBox{
+    margin-left: 40px ;
+    position:relative;
+    width:100%;
+    padding:20px;
+    display:grid;   
+    grid-template-columns:repeat(2,2fr);
+    grid-gap:20px;
+}
+.cardBox .card{
+    position:relative;
+    background:#333;
+    padding:20px;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    flex-direction:row;
+    border:none;
+    border-radius:40px;
+    transition:1s;
+}
+.cardBox .card:hover{
+    background:#03a9f4;
+}
+.cardBox .card:hover .cardNumber{
+    color:#fff;
+    font-weight:900;
+}
+.cardBox .card:hover .cardIcon{
+    color:#fff;
+    font-weight:900;
+}
+.cardBox .card:hover .cardName{
+    color:#fff;
+    font-weight:900;
+}
+.cardBox .card .cardNumber{
+    position:relative;
+    font-size:2em;
+    font-weight:600;
+    transition:0.5s;
+}
+.cardBox .card .Link{
+    text-decoration: none;
+}
+.cardBox .card .cardName{
+    /* color:#999; */
+    font-size:1.5em;
+    transition:0.5s;
+    text-transform: capitalize;
+}
