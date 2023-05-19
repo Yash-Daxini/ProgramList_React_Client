@@ -14,8 +14,9 @@ const Home = () => {
             <p><h6>Best platform to help you enhance your skills, expand your knowledge and prepare for technical interviews.</h6></p>
           </div>
         </div>
-        <div className='m-5'>
-          <Link to={"/SelectAll"} className='text-decoration-none text-white fs-5'>Start Learning <ion-icon name="chevron-forward-outline"></ion-icon></Link>
+        <div className='m-5 d-flex justify-content-center align-items-center'>
+          <Link to={"/SelectAll"} className='text-decoration-none text-white fs-3'>Start Learning</Link>
+          <Link to={"/SelectAll"} className='text-decoration-none text-white fs-3 mt-2 mx-2'><ion-icon name="chevron-forward-outline"></ion-icon></Link>
         </div>
       </div>
     </>
