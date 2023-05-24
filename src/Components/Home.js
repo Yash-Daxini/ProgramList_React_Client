@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <>
-      <div className="homeMain p-1 d-flex justify-content-center flex-column">
-        <div className='d-flex justify-content-between align-items-center mx-3'>
-          <div className='w-50 m-5 codeIconDiv'>
+      <div className="homeMain p-1">
+        <div className='homeMainChild'>
+          <div className='w-50 codeIconDiv'>
             <h1><ion-icon className="icon" name="code-slash-outline"></ion-icon></h1>
           </div>
           <div className='w-50 m-4'>

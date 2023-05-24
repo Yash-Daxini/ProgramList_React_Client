@@ -7,7 +7,7 @@ const Layout = () => {
             <nav class="customeClassForNav navbar navbar-expand-lg p-3">
                 <div class="container-fluid">
                     <Link class="navbar-brand mx-3 fw-bold" to="/" style={{color:"#fff"}}>Program List</Link>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler bg-light navbarToggleButton" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">

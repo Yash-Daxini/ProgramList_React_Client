@@ -21,8 +21,18 @@ html {
     margin: 0;
     padding: 0;
     /* background-color: #333; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: rgb(40 40 40/1);
     color: #03a9f4;
+}
+.homeMainChild{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .customeClassForNav{
     background-color: rgb(40 40 40/1);
@@ -78,10 +88,6 @@ table td , table th{
 .form-control {
     border-radius: 40px;
 }
-.selectAll{
-    width: 85%;
-    margin-top: 20px;
-}
 .selectAll table{
     margin-top: 20px;
 }
@@ -98,10 +104,11 @@ table td , table th{
     position:relative;
     background:#333;
     padding:20px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor:pointer;
-    display:flex;
-    justify-content:space-between;
-    flex-direction:row;
     border:none;
     border-radius:40px;
     transition:1s;
@@ -135,4 +142,55 @@ table td , table th{
     font-size:1.5em;
     transition:0.5s;
     text-transform: capitalize;
+}
+@media only screen and (max-width: 1020px)  {
+    .cardBox{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .App{
+        min-width: 100vw;
+    }
+}
+@media only screen and (min-width: 200px)  {
+    *{
+        margin: 0;
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 400px)  {
+    *{
+        margin: 0px;
+        padding: 0px;
+        font-size: 20px;
+    }
+    .App{
+        min-width: 100vw;
+    }
+    .container-sm {
+        width: 100%;
+    }
+    .navbarToggleButton{
+        background: #fff;
+    }
+    .homeMainChild{
+        margin: 0;
+        padding: 0;
+    }
+    .cardBox{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .cardBox .card{
+        padding: 12px;
+    }
+    .cardBox .card .cardName{
+        font-size: 25px;
+    }
 }
