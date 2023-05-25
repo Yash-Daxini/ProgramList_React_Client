@@ -141,8 +141,8 @@ const SelectAll = () => {
           </button> */}
         </div>
       </div>
-      <div>
-        <table class="table mt-5">
+      <div className="table-responsive">
+        <table className="table table-borderless align-middle mb-0">
           <thead>
             <tr>
               <th scope="col">Name</th>

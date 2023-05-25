@@ -53,6 +53,11 @@ table td , table th{
     color: white;
     padding: 50px;
 }
+table {
+    margin-top: 50px;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
 .customBadgeSuccess span{
     /* background-color: #556B2F;
      */
@@ -155,12 +160,6 @@ table td , table th{
         min-width: 100vw;
     }
 }
-@media only screen and (min-width: 200px)  {
-    *{
-        margin: 0;
-        padding: 0;
-    }
-}
 @media only screen and (max-width: 400px)  {
     *{
         margin: 0px;
@@ -176,6 +175,10 @@ table td , table th{
     .navbarToggleButton{
         background: #fff;
     }
+    .homeMain p{
+        font-size: 500px;
+        letter-spacing: 1px;
+    }
     .homeMainChild{
         margin: 0;
         padding: 0;
@@ -188,7 +191,7 @@ table td , table th{
         flex-direction: column;
     }
     .cardBox .card{
-        padding: 12px;
+        padding-top: 12px;
     }
     .cardBox .card .cardName{
         font-size: 25px;
