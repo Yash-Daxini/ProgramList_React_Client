@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 
 const SelectAll = () => {
   const [programObj, setProgramObj] = useState([]);
-  const [topicObj, setTopicObj] = useState([]);
+  // const [topicObj, setTopicObj] = useState([]);
   const [filterObj, setFilterObj] = useState({
     program_Topic: "all",
     program_Difficulty: "all",
   });
+  const [filterdData,setFilteredData] = useState([]);
 
   useEffect(() => {
     fetch("https://localhost:5001/api/MST_Program")
@@ -17,22 +18,23 @@ const SelectAll = () => {
       })
       .then((data) => {
         setProgramObj(data);
+        setFilteredData(data);
+        // setTopicObj(data.program_Topic);
       })
       .catch((e) => {});
   }, []);
 
-  useEffect(() => {
-    fetch(`https://localhost:5001/api/MST_ProgramTopic/`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setTopicObj(data);
-      })
-      .catch((e) => {});
-  }, []);
+  // useEffect(() => {
+  //   fetch(`https://localhost:5001/api/MST_ProgramTopic/`)
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //     })
+  //     .catch((e) => {});
+  // }, []);
 
-  const allPrograms = programObj.map((program) => {
+  const allPrograms = filterdData.map((program) => {
     return (
       <>
         <tr>
@@ -73,29 +75,30 @@ const SelectAll = () => {
     );
   });
 
-  const allTopicsName = topicObj.map((topicObj) => {
+  const allTopicsName = programObj.map((tObj) => {
     return (
       <>
-        <option>{topicObj.topic_Name}</option>
+        <option>{tObj.program_Topic}</option>
       </>
     );
   });
 
-  const fetchUsingFilter = (program_Topic, program_Difficulty) => {
-    // console.warn(program_Topic + " " + program_Difficulty);
-    fetch(
-      `https://localhost:5001/api/MST_Program/getByFilter/${program_Topic}/${program_Difficulty}`
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setProgramObj(data);
-        filterObj.program_Topic = program_Topic;
-        filterObj.program_Difficulty = program_Difficulty;
-      })
-      .catch((e) => {});
-  };
+  /* Filter Using API calls */
+  // const fetchUsingFilter = (program_Topic, program_Difficulty) => {
+  //   // console.warn(program_Topic + " " + program_Difficulty);
+  //   fetch(
+  //     `https://localhost:5001/api/MST_Program/getByFilter/${program_Topic}/${program_Difficulty}`
+  //   )
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       setProgramObj(data);
+  //       filterObj.program_Topic = program_Topic;
+  //       filterObj.program_Difficulty = program_Difficulty;
+  //     })
+  //     .catch((e) => {});
+  // };
 
   return (
     <div className="selectAll container-sm darkTheme p-5">
@@ -108,8 +111,25 @@ const SelectAll = () => {
             className="form-control m-2"
             value={filterObj.program_Topic}
             onChange={(e) => {
+              // console.warn(filterObj.program_Topic + " " + e.target.value);
               setFilterObj({ ...filterObj, program_Topic: e.target.value });
-              fetchUsingFilter(e.target.value, filterObj.program_Difficulty);
+              // setTimeout(() => {
+                if( e.target.value === "all" && filterObj.program_Difficulty === "all" ){
+                  setFilteredData(programObj);
+                }
+                else if( e.target.value === "all" ){
+                  setFilteredData(programObj.filter((program)=>program.program_Difficulty === filterObj.program_Difficulty));
+                }
+                else if( filterObj.program_Difficulty === "all" ){
+                  setFilteredData(programObj.filter((program)=>program.program_Topic === e.target.value));  
+                }
+                else{
+                  setFilteredData(programObj.filter((program)=>program.program_Topic === e.target.value && program.program_Difficulty === filterObj.program_Difficulty));
+                }
+                // console.warn(filterObj.program_Topic);
+              // }, 3000);
+              // console.warn(filterdData);
+              // fetchUsingFilter(e.target.value, filterObj.program_Difficulty);
             }}
           >
             <option value={"all"}>Select Topic Name</option>
@@ -123,7 +143,19 @@ const SelectAll = () => {
                 ...filterObj,
                 program_Difficulty: e.target.value,
               });
-              fetchUsingFilter(filterObj.program_Topic, e.target.value);
+              if( e.target.value === "all" && filterObj.program_Topic === "all" ){
+                setFilteredData(programObj);
+              }
+              else if( e.target.value === "all" ){
+                setFilteredData(programObj.filter((program)=>program.program_Topic === filterObj.program_Topic));  
+              }
+              else if( filterObj.program_Topic === "all" ){
+                setFilteredData(programObj.filter((program)=>program.program_Difficulty === e.target.value));
+              }
+              else{
+                setFilteredData(programObj.filter((program)=>program.program_Difficulty === e.target.value && program.program_Topic === filterObj.program_Topic));
+              }
+              // fetchUsingFilter(filterObj.program_Topic, e.target.value);
             }}
           >
             <option value={"all"}>Select Difficulty</option>
